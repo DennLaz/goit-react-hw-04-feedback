@@ -1,0 +1,16 @@
+.list {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.btn {
+    border: 1px solid blueviolet;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: transparent;
+padding: 7px 10px;
+color: blueviolet;
+}
