@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import styles from './statistics.module.css';
 
 
-const Statistics = ({total, good, neutral, bad, percentage}) => {
+const Statistics = ({ total, good, neutral, bad, percentage }) => {
+   console.log('рендер statistics');
     return (
         <>
+            
             <p className={styles.text}>Good: { good}</p>
             <p className={styles.text}>Neutral: {neutral }</p>
             <p className={styles.text}>Bad: {bad} </p>

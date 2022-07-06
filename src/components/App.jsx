@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 import feedback from '../data/dataFeedback';
 import Section from './Section';
@@ -17,24 +17,25 @@ export function App() {
 
   const { good, neutral, bad } = state;
 
-  function onLeaveFeedback(propertyName) {
+  const onLeaveFeedback = useCallback((propertyName) =>{
     setState(prevState => {
       return {
         ...prevState,
         [propertyName]: prevState[propertyName] + 1,
       };
     });
-  }
+  },[setState])
 
-  function countTotalFeedback() {
+  const countTotalFeedback = useCallback(() => {
     return good + neutral + bad;
-  }
+  }, [good, neutral, bad])
 
-  function countPositiveFeedbackPercentage() {
+  const countPositiveFeedbackPercentage = useCallback(() => {
     const totalFeedback = countTotalFeedback();
     const result = `${Math.round((good * 100) / totalFeedback)}%`;
     return result;
-  }
+  }, [countTotalFeedback, good])
+  
   const total = countTotalFeedback();
   const percentage = countPositiveFeedbackPercentage();
 

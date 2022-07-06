@@ -1,8 +1,11 @@
+import { memo } from 'react';
+
 import PropTypes from 'prop-types';
 
 import styles from './feedbackOptions.module.css'
 
 const FeedbackOptions = ({ onLeaveFeedback, options }) => {
+     
     const btnElement = options.map(({ id, review }) => (
         <li key={id}>
             <button className={styles.btn} onClick={()=> onLeaveFeedback(review)} type="button">{review}</button>
@@ -30,4 +33,4 @@ FeedbackOptions.propTypes = {
     ),
 }
 
-export default FeedbackOptions;
+export default memo(FeedbackOptions);
